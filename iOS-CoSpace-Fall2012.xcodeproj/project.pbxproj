@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D311FB791636159500797BF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB781636159500797BF9 /* UIKit.framework */; };
+		D311FB7B1636159500797BF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7A1636159500797BF9 /* Foundation.framework */; };
+		D311FB7D1636159500797BF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7C1636159500797BF9 /* CoreGraphics.framework */; };
+		D311FB831636159500797BF9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D311FB811636159500797BF9 /* InfoPlist.strings */; };
+		D311FB851636159500797BF9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D311FB841636159500797BF9 /* main.m */; };
+		D311FB891636159500797BF9 /* HCSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D311FB881636159500797BF9 /* HCSAppDelegate.m */; };
+		D311FB8C1636159500797BF9 /* HCSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D311FB8B1636159500797BF9 /* HCSViewController.m */; };
+		D311FB8F1636159500797BF9 /* HCSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D311FB8D1636159500797BF9 /* HCSViewController.xib */; };
+		D311FB971636159500797BF9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB961636159500797BF9 /* SenTestingKit.framework */; };
+		D311FB981636159500797BF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB781636159500797BF9 /* UIKit.framework */; };
+		D311FB991636159500797BF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7A1636159500797BF9 /* Foundation.framework */; };
+		D311FBA11636159500797BF9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D311FB9F1636159500797BF9 /* InfoPlist.strings */; };
+		D311FBA41636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D311FBA31636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D311FB9A1636159500797BF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D311FB6B1636159500797BF9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D311FB731636159500797BF9;
+			remoteInfo = "iOS-CoSpace-Fall2012";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D311FB741636159500797BF9 /* iOS-CoSpace-Fall2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-CoSpace-Fall2012.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D311FB781636159500797BF9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D311FB7A1636159500797BF9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D311FB7C1636159500797BF9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D311FB801636159500797BF9 /* iOS-CoSpace-Fall2012-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-CoSpace-Fall2012-Info.plist"; sourceTree = "<group>"; };
+		D311FB821636159500797BF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D311FB841636159500797BF9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D311FB861636159500797BF9 /* iOS-CoSpace-Fall2012-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS-CoSpace-Fall2012-Prefix.pch"; sourceTree = "<group>"; };
+		D311FB871636159500797BF9 /* HCSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCSAppDelegate.h; sourceTree = "<group>"; };
+		D311FB881636159500797BF9 /* HCSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCSAppDelegate.m; sourceTree = "<group>"; };
+		D311FB8A1636159500797BF9 /* HCSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCSViewController.h; sourceTree = "<group>"; };
+		D311FB8B1636159500797BF9 /* HCSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCSViewController.m; sourceTree = "<group>"; };
+		D311FB8E1636159500797BF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HCSViewController.xib; sourceTree = "<group>"; };
+		D311FB951636159500797BF9 /* iOS-CoSpace-Fall2012Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-CoSpace-Fall2012Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D311FB961636159500797BF9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D311FB9E1636159500797BF9 /* iOS-CoSpace-Fall2012Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-CoSpace-Fall2012Tests-Info.plist"; sourceTree = "<group>"; };
+		D311FBA01636159500797BF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D311FBA21636159500797BF9 /* iOS_CoSpace_Fall2012Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOS_CoSpace_Fall2012Tests.h; sourceTree = "<group>"; };
+		D311FBA31636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_CoSpace_Fall2012Tests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D311FB711636159500797BF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D311FB791636159500797BF9 /* UIKit.framework in Frameworks */,
+				D311FB7B1636159500797BF9 /* Foundation.framework in Frameworks */,
+				D311FB7D1636159500797BF9 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D311FB911636159500797BF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D311FB971636159500797BF9 /* SenTestingKit.framework in Frameworks */,
+				D311FB981636159500797BF9 /* UIKit.framework in Frameworks */,
+				D311FB991636159500797BF9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D311FB691636159500797BF9 = {
+			isa = PBXGroup;
+			children = (
+				D311FB7E1636159500797BF9 /* iOS-CoSpace-Fall2012 */,
+				D311FB9C1636159500797BF9 /* iOS-CoSpace-Fall2012Tests */,
+				D311FB771636159500797BF9 /* Frameworks */,
+				D311FB751636159500797BF9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D311FB751636159500797BF9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D311FB741636159500797BF9 /* iOS-CoSpace-Fall2012.app */,
+				D311FB951636159500797BF9 /* iOS-CoSpace-Fall2012Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D311FB771636159500797BF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D311FB781636159500797BF9 /* UIKit.framework */,
+				D311FB7A1636159500797BF9 /* Foundation.framework */,
+				D311FB7C1636159500797BF9 /* CoreGraphics.framework */,
+				D311FB961636159500797BF9 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D311FB7E1636159500797BF9 /* iOS-CoSpace-Fall2012 */ = {
+			isa = PBXGroup;
+			children = (
+				D311FB871636159500797BF9 /* HCSAppDelegate.h */,
+				D311FB881636159500797BF9 /* HCSAppDelegate.m */,
+				D311FB8A1636159500797BF9 /* HCSViewController.h */,
+				D311FB8B1636159500797BF9 /* HCSViewController.m */,
+				D311FB8D1636159500797BF9 /* HCSViewController.xib */,
+				D311FB7F1636159500797BF9 /* Supporting Files */,
+			);
+			path = "iOS-CoSpace-Fall2012";
+			sourceTree = "<group>";
+		};
+		D311FB7F1636159500797BF9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D311FB801636159500797BF9 /* iOS-CoSpace-Fall2012-Info.plist */,
+				D311FB811636159500797BF9 /* InfoPlist.strings */,
+				D311FB841636159500797BF9 /* main.m */,
+				D311FB861636159500797BF9 /* iOS-CoSpace-Fall2012-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D311FB9C1636159500797BF9 /* iOS-CoSpace-Fall2012Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D311FBA21636159500797BF9 /* iOS_CoSpace_Fall2012Tests.h */,
+				D311FBA31636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m */,
+				D311FB9D1636159500797BF9 /* Supporting Files */,
+			);
+			path = "iOS-CoSpace-Fall2012Tests";
+			sourceTree = "<group>";
+		};
+		D311FB9D1636159500797BF9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D311FB9E1636159500797BF9 /* iOS-CoSpace-Fall2012Tests-Info.plist */,
+				D311FB9F1636159500797BF9 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D311FB731636159500797BF9 /* iOS-CoSpace-Fall2012 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D311FBA71636159500797BF9 /* Build configuration list for PBXNativeTarget "iOS-CoSpace-Fall2012" */;
+			buildPhases = (
+				D311FB701636159500797BF9 /* Sources */,
+				D311FB711636159500797BF9 /* Frameworks */,
+				D311FB721636159500797BF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iOS-CoSpace-Fall2012";
+			productName = "iOS-CoSpace-Fall2012";
+			productReference = D311FB741636159500797BF9 /* iOS-CoSpace-Fall2012.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D311FB941636159500797BF9 /* iOS-CoSpace-Fall2012Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D311FBAA1636159500797BF9 /* Build configuration list for PBXNativeTarget "iOS-CoSpace-Fall2012Tests" */;
+			buildPhases = (
+				D311FB901636159500797BF9 /* Sources */,
+				D311FB911636159500797BF9 /* Frameworks */,
+				D311FB921636159500797BF9 /* Resources */,
+				D311FB931636159500797BF9 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D311FB9B1636159500797BF9 /* PBXTargetDependency */,
+			);
+			name = "iOS-CoSpace-Fall2012Tests";
+			productName = "iOS-CoSpace-Fall2012Tests";
+			productReference = D311FB951636159500797BF9 /* iOS-CoSpace-Fall2012Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D311FB6B1636159500797BF9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HCS;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = PDAgent;
+			};
+			buildConfigurationList = D311FB6E1636159500797BF9 /* Build configuration list for PBXProject "iOS-CoSpace-Fall2012" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D311FB691636159500797BF9;
+			productRefGroup = D311FB751636159500797BF9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D311FB731636159500797BF9 /* iOS-CoSpace-Fall2012 */,
+				D311FB941636159500797BF9 /* iOS-CoSpace-Fall2012Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D311FB721636159500797BF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D311FB831636159500797BF9 /* InfoPlist.strings in Resources */,
+				D311FB8F1636159500797BF9 /* HCSViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D311FB921636159500797BF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D311FBA11636159500797BF9 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D311FB931636159500797BF9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D311FB701636159500797BF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D311FB851636159500797BF9 /* main.m in Sources */,
+				D311FB891636159500797BF9 /* HCSAppDelegate.m in Sources */,
+				D311FB8C1636159500797BF9 /* HCSViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D311FB901636159500797BF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D311FBA41636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D311FB9B1636159500797BF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D311FB731636159500797BF9 /* iOS-CoSpace-Fall2012 */;
+			targetProxy = D311FB9A1636159500797BF9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D311FB811636159500797BF9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D311FB821636159500797BF9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D311FB8D1636159500797BF9 /* HCSViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D311FB8E1636159500797BF9 /* en */,
+			);
+			name = HCSViewController.xib;
+			sourceTree = "<group>";
+		};
+		D311FB9F1636159500797BF9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D311FBA01636159500797BF9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D311FBA51636159500797BF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D311FBA61636159500797BF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D311FBA81636159500797BF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOS-CoSpace-Fall2012/iOS-CoSpace-Fall2012-Prefix.pch";
+				INFOPLIST_FILE = "iOS-CoSpace-Fall2012/iOS-CoSpace-Fall2012-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D311FBA91636159500797BF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOS-CoSpace-Fall2012/iOS-CoSpace-Fall2012-Prefix.pch";
+				INFOPLIST_FILE = "iOS-CoSpace-Fall2012/iOS-CoSpace-Fall2012-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D311FBAB1636159500797BF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iOS-CoSpace-Fall2012.app/iOS-CoSpace-Fall2012";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOS-CoSpace-Fall2012/iOS-CoSpace-Fall2012-Prefix.pch";
+				INFOPLIST_FILE = "iOS-CoSpace-Fall2012Tests/iOS-CoSpace-Fall2012Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D311FBAC1636159500797BF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iOS-CoSpace-Fall2012.app/iOS-CoSpace-Fall2012";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOS-CoSpace-Fall2012/iOS-CoSpace-Fall2012-Prefix.pch";
+				INFOPLIST_FILE = "iOS-CoSpace-Fall2012Tests/iOS-CoSpace-Fall2012Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D311FB6E1636159500797BF9 /* Build configuration list for PBXProject "iOS-CoSpace-Fall2012" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D311FBA51636159500797BF9 /* Debug */,
+				D311FBA61636159500797BF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D311FBA71636159500797BF9 /* Build configuration list for PBXNativeTarget "iOS-CoSpace-Fall2012" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D311FBA81636159500797BF9 /* Debug */,
+				D311FBA91636159500797BF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D311FBAA1636159500797BF9 /* Build configuration list for PBXNativeTarget "iOS-CoSpace-Fall2012Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D311FBAB1636159500797BF9 /* Debug */,
+				D311FBAC1636159500797BF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D311FB6B1636159500797BF9 /* Project object */;
+}
