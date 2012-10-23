@@ -1,0 +1,2 @@
+*.pbxproj -diff -crlf merge=union
+*.xib -diff
