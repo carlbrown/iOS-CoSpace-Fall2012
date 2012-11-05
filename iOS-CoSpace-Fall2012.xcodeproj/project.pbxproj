@@ -20,6 +20,8 @@
 		D311FB991636159500797BF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7A1636159500797BF9 /* Foundation.framework */; };
 		D311FBA11636159500797BF9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D311FB9F1636159500797BF9 /* InfoPlist.strings */; };
 		D311FBA41636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D311FBA31636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m */; };
+		D355CF3316476FE1004E70DB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D355CF3216476FE1004E70DB /* Reachability.m */; };
+		D355CF3516476FF4004E70DB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D355CF3416476FF4004E70DB /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,9 @@
 		D311FBA01636159500797BF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D311FBA21636159500797BF9 /* iOS_CoSpace_Fall2012Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOS_CoSpace_Fall2012Tests.h; sourceTree = "<group>"; };
 		D311FBA31636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_CoSpace_Fall2012Tests.m; sourceTree = "<group>"; };
+		D355CF3116476FE1004E70DB /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = External/Reachability/Reachability.h; sourceTree = "<group>"; };
+		D355CF3216476FE1004E70DB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = External/Reachability/Reachability.m; sourceTree = "<group>"; };
+		D355CF3416476FF4004E70DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D355CF3516476FF4004E70DB /* SystemConfiguration.framework in Frameworks */,
 				D311FB791636159500797BF9 /* UIKit.framework in Frameworks */,
 				D311FB7B1636159500797BF9 /* Foundation.framework in Frameworks */,
 				D311FB7D1636159500797BF9 /* CoreGraphics.framework in Frameworks */,
@@ -83,6 +89,7 @@
 			children = (
 				D311FB7E1636159500797BF9 /* iOS-CoSpace-Fall2012 */,
 				D311FB9C1636159500797BF9 /* iOS-CoSpace-Fall2012Tests */,
+				D355CF2E16476FC1004E70DB /* External */,
 				D311FB771636159500797BF9 /* Frameworks */,
 				D311FB751636159500797BF9 /* Products */,
 			);
@@ -103,6 +110,7 @@
 				D311FB781636159500797BF9 /* UIKit.framework */,
 				D311FB7A1636159500797BF9 /* Foundation.framework */,
 				D311FB7C1636159500797BF9 /* CoreGraphics.framework */,
+				D355CF3416476FF4004E70DB /* SystemConfiguration.framework */,
 				D311FB961636159500797BF9 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
@@ -149,6 +157,23 @@
 				D311FB9F1636159500797BF9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D355CF2E16476FC1004E70DB /* External */ = {
+			isa = PBXGroup;
+			children = (
+				D355CF3016476FCC004E70DB /* Reachability */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		D355CF3016476FCC004E70DB /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				D355CF3116476FE1004E70DB /* Reachability.h */,
+				D355CF3216476FE1004E70DB /* Reachability.m */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +287,7 @@
 				D311FB851636159500797BF9 /* main.m in Sources */,
 				D311FB891636159500797BF9 /* HCSAppDelegate.m in Sources */,
 				D311FB8C1636159500797BF9 /* HCSViewController.m in Sources */,
+				D355CF3316476FE1004E70DB /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +461,7 @@
 				D311FBA91636159500797BF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D311FBAA1636159500797BF9 /* Build configuration list for PBXNativeTarget "iOS-CoSpace-Fall2012Tests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +470,7 @@
 				D311FBAC1636159500797BF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

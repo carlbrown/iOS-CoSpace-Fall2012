@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HCSViewController : UIViewController
+@interface HCSViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
