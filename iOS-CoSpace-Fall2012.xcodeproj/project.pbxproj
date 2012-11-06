@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D30023881648A21E006C2A75 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30023871648A21E006C2A75 /* CoreData.framework */; };
+		D300238C1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D300238A1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodeld */; };
+		D300238F1648A41E006C2A75 /* Repo.m in Sources */ = {isa = PBXBuildFile; fileRef = D300238E1648A41E006C2A75 /* Repo.m */; };
 		D311FB791636159500797BF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB781636159500797BF9 /* UIKit.framework */; };
 		D311FB7B1636159500797BF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7A1636159500797BF9 /* Foundation.framework */; };
 		D311FB7D1636159500797BF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7C1636159500797BF9 /* CoreGraphics.framework */; };
@@ -35,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D30023871648A21E006C2A75 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D300238B1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iOS-CoSpace-Fall2012.xcdatamodel"; sourceTree = "<group>"; };
+		D300238D1648A41E006C2A75 /* Repo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Repo.h; path = ../Repo.h; sourceTree = "<group>"; };
+		D300238E1648A41E006C2A75 /* Repo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Repo.m; path = ../Repo.m; sourceTree = "<group>"; };
 		D311FB741636159500797BF9 /* iOS-CoSpace-Fall2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-CoSpace-Fall2012.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D311FB781636159500797BF9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D311FB7A1636159500797BF9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D30023881648A21E006C2A75 /* CoreData.framework in Frameworks */,
 				D355CF3516476FF4004E70DB /* SystemConfiguration.framework in Frameworks */,
 				D311FB791636159500797BF9 /* UIKit.framework in Frameworks */,
 				D311FB7B1636159500797BF9 /* Foundation.framework in Frameworks */,
@@ -107,6 +115,7 @@
 		D311FB771636159500797BF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D30023871648A21E006C2A75 /* CoreData.framework */,
 				D311FB781636159500797BF9 /* UIKit.framework */,
 				D311FB7A1636159500797BF9 /* Foundation.framework */,
 				D311FB7C1636159500797BF9 /* CoreGraphics.framework */,
@@ -119,6 +128,9 @@
 		D311FB7E1636159500797BF9 /* iOS-CoSpace-Fall2012 */ = {
 			isa = PBXGroup;
 			children = (
+				D300238A1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodeld */,
+				D300238D1648A41E006C2A75 /* Repo.h */,
+				D300238E1648A41E006C2A75 /* Repo.m */,
 				D311FB871636159500797BF9 /* HCSAppDelegate.h */,
 				D311FB881636159500797BF9 /* HCSAppDelegate.m */,
 				D311FB8A1636159500797BF9 /* HCSViewController.h */,
@@ -288,6 +300,8 @@
 				D311FB891636159500797BF9 /* HCSAppDelegate.m in Sources */,
 				D311FB8C1636159500797BF9 /* HCSViewController.m in Sources */,
 				D355CF3316476FE1004E70DB /* Reachability.m in Sources */,
+				D300238C1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodeld in Sources */,
+				D300238F1648A41E006C2A75 /* Repo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +487,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D300238A1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D300238B1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodel */,
+			);
+			currentVersion = D300238B1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodel */;
+			path = "iOS-CoSpace-Fall2012.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D311FB6B1636159500797BF9 /* Project object */;
 }
