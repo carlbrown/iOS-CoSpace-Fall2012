@@ -1,3 +1,6 @@
 [submodule "External/Reachability"]
 	path = External/Reachability
 	url = git://github.com/tonymillion/Reachability.git
+[submodule "External/SyntheticServerTest"]
+	path = External/SyntheticServerTest
+	url = git://github.com/carlbrown/SyntheticServerTest.git
