@@ -54,6 +54,10 @@
 
 -(void) testFetchForks {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Repo class])];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"login" ascending:YES];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
 
     //NSLog(@"Checking for repo from user %@",[repoDict valueForKeyPath:@"owner.login"]);
     NSError *fetchError=nil;
@@ -73,6 +77,11 @@
 
     
     STAssertEquals((uint) 11, (uint) [foundRepos count], @"Should have added 11 repos");
+    
+    STAssertEqualObjects(@"bithai", [[foundRepos objectAtIndex:0] login], @"Element 0 incorrect");
+    STAssertEqualObjects(@"bobtodd", [[foundRepos objectAtIndex:1] login], @"Element 1 incorrect");
+    STAssertEqualObjects(@"thedug", [[foundRepos objectAtIndex:10] login], @"Element 10 incorrect");
+
 
 }
 
