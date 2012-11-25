@@ -49,7 +49,7 @@
         //Now, check in Core Data to see if we already have recorded this event
         NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Repo class])];
         [fetchRequest setFetchLimit:1];
-        NSLog(@"Checking for repo from user %@",[repoDict valueForKeyPath:@"owner.login"]);
+        //NSLog(@"Checking for repo from user %@",[repoDict valueForKeyPath:@"owner.login"]);
         NSPredicate *ownerInfo = [NSPredicate predicateWithFormat:@"login = %@",
                                   [repoDict valueForKeyPath:@"owner.login"]];
         [fetchRequest setPredicate:ownerInfo];
@@ -64,7 +64,7 @@
             // If appropriate, configure the new managed object.
             // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
             [newManagedObject setValue:[repoDict valueForKeyPath:@"owner.login"] forKey:@"login"];
-            NSLog(@"Saving repo from user %@",[repoDict valueForKeyPath:@"owner.login"]);
+            //NSLog(@"Saving repo from user %@",[repoDict valueForKeyPath:@"owner.login"]);
 
             // Save the context.
             NSError *error = nil;
