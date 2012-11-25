@@ -8,9 +8,8 @@
 
 #import "HCSViewController.h"
 #import "Reachability.h"
+#import "NetworkManager.h"
 #import "Repo.h"
-
-#define kBaseAPIURL @"https://api.github.com/repos/carlbrown/iOS-CoSpace-Fall2012/forks"
 
 @interface HCSViewController ()
 
@@ -30,13 +29,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [[NSNotificationCenter defaultCenter]
-     addObserver: self
-     selector: @selector(reachabilityChanged:) name: kReachabilityChangedNotification object: nil];
+    [[NetworkManager sharedManager] startInitialFetch];
     
-    self.reachability = [Reachability reachabilityWithHostname:[[NSURL URLWithString:kBaseAPIURL] host]];
-    
-    [self reactToReachability:self.reachability];
 }
 
 - (void)viewDidUnload
@@ -51,89 +45,6 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (void) reachabilityChanged: (NSNotification* )note
-{
-	Reachability* curReach = [note object];
-    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
-    [self reactToReachability:curReach];
-}
-                             
--(void) reactToReachability:(Reachability *) reachability {
-    NSParameterAssert([reachability isKindOfClass: [Reachability class]]);
-
-    self.reachability = reachability;
-    if ([self.reachability currentReachabilityStatus]==NotReachable) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Offiline" message:@"Please try connecting to the Internet" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        [alert show];
-    } else {
-        NSURLRequest *apiReq = [NSURLRequest requestWithURL:[NSURL URLWithString:kBaseAPIURL]];
-        self.connection = [NSURLConnection connectionWithRequest:apiReq delegate:self];
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    }
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    NSHTTPURLResponse *resp = (NSHTTPURLResponse *) response;
-    if ([resp statusCode] == 200) {
-        self.connectionData = [NSMutableData data];
-    } else if ([resp statusCode] > 399) { //skip redirects
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error" message:[NSString stringWithFormat:@"Error %d",resp.statusCode] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        [alert show];
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    }
-
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [self.connectionData appendData:data];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{    
-    NSError *parseError=nil;
-    
-    NSArray *parsedJSONArray = [NSJSONSerialization JSONObjectWithData:self.connectionData options:NSJSONReadingMutableContainers error:&parseError];
-    if (!parsedJSONArray) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Parse Error" message:[parseError description] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        [alert show];
-        return;
-    }
-    for (NSDictionary *repoDict in parsedJSONArray) {
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-        
-        // If appropriate, configure the new managed object.
-        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        [newManagedObject setValue:[repoDict valueForKeyPath:@"owner.login"] forKey:@"login"];
-        
-    }
-    // Save the context.
-    NSError *error = nil;
-    if (![self.managedObjectContext save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
-    if (![[self fetchedResultsController] performFetch:&error]) {
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-		abort();
-	}
-    
-    [self.tableView reloadData];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[self.fetchedResultsController fetchedObjects] count];
@@ -146,7 +57,8 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    [cell.textLabel setText:[[self.fetchedResultsController objectAtIndexPath:indexPath] login]];
+    
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
@@ -175,7 +87,7 @@
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
-    //aFetchedResultsController.delegate = self;
+    aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
 	NSError *error = nil;
@@ -187,6 +99,72 @@
 	}
     
     return _fetchedResultsController;
+}
+
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
+{
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
+    UITableView *tableView = self.tableView;
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView endUpdates];
+}
+
+/*
+ // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
+ 
+ - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+ {
+ // In the simplest, most efficient, case, reload the table view.
+ [self.tableView reloadData];
+ }
+ */
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    [cell.textLabel setText:[[self.fetchedResultsController objectAtIndexPath:indexPath] login]];
 }
 
 @end

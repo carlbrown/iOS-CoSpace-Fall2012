@@ -9,6 +9,10 @@
 #import "NetworkManager.h"
 #import "Reachability.h"
 #import "HCSAppDelegate.h"
+#import "RepoFetchOperation.h"
+
+#define kBaseAPIURL @"https://api.github.com/"
+#define kForkFetchURLPath @"/repos/carlbrown/iOS-CoSpace-Fall2012/forks"
 
 static NetworkManager __strong *sharedManager = nil;
 
@@ -32,27 +36,22 @@ static NetworkManager __strong *sharedManager = nil;
     static dispatch_once_t pred; dispatch_once(&pred, ^{
         sharedManager = [[self alloc] init];
         [sharedManager setFetchQueue:[[NSOperationQueue alloc] init]];
-        [sharedManager setBaseURLString:@"https://api.github.com/"];
+        [sharedManager setBaseURLString:kBaseAPIURL];
         [sharedManager setMainContext:[(HCSAppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext]];
         //Assume the network is up to start with
         [sharedManager setNetworkOnline:YES];
-        [[NSNotificationCenter defaultCenter] addObserver:sharedManager selector: @selector(reachabilityChanged:) name: kReachabilityChangedNotification object: nil];
+        [[NSNotificationCenter defaultCenter]
+         addObserver: sharedManager
+         selector: @selector(reachabilityChanged:) name: kReachabilityChangedNotification object: nil];
+        
+        [sharedManager setHostReach:[Reachability reachabilityWithHostname:[[NSURL URLWithString:kBaseAPIURL] host]]];
+        
+        [sharedManager reactToReachability:[sharedManager hostReach]];
         [sharedManager setActiveFetches:0];
     });
     return sharedManager;
 }
 
-//Called by Reachability whenever status changes.
-- (void) reachabilityChanged: (NSNotification* )note
-{
-	Reachability* curReach = [note object];
-	NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
-    if ([curReach currentReachabilityStatus]==NotReachable) {
-        [self setNetworkOnline:NO];
-    } else {
-        [self setNetworkOnline:YES];
-    }
-}
 
 -(NSURL *) baseURL {
     return [NSURL URLWithString:self.baseURLString];
@@ -60,6 +59,63 @@ static NetworkManager __strong *sharedManager = nil;
 
 -(NSURL *) urlForRelativePath:(NSString *) relativePath {
     return [NSURL URLWithString:relativePath relativeToURL:self.baseURL];
+}
+
+- (void) reachabilityChanged: (NSNotification* )note
+{
+	Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+    [self reactToReachability:curReach];
+}
+
+-(void) reactToReachability:(Reachability *) reachability {
+    NSParameterAssert([reachability isKindOfClass: [Reachability class]]);
+    
+    self.hostReach = reachability;
+    if ([self.hostReach currentReachabilityStatus]==NotReachable) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Offiline" message:@"Please try connecting to the Internet" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+    } else {
+        [self startInitialFetch];
+    }
+}
+
+-(void) queuePageFetchForRelativePath:(NSString *) relativePath {
+    RepoFetchOperation *repoFetchOperation = [[RepoFetchOperation alloc] init];
+    [repoFetchOperation setUrlToFetch:[self urlForRelativePath:relativePath]];
+    [repoFetchOperation setMainContext:self.mainContext];
+    [repoFetchOperation setDelegate:self];
+    [self.fetchQueue addOperation:repoFetchOperation];
+}
+
+-(void) startInitialFetch {
+    [self queuePageFetchForRelativePath:kForkFetchURLPath];
+}
+
+-(void) fetchDidFailWithError:(NSError *) error {
+    //Don't give the user an error if the network is already offline
+    if (self.isNetworkOnline) {
+        UIAlertView *networkAlertView = [[UIAlertView alloc] initWithTitle:[error localizedDescription] message:[[error userInfo] description] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [networkAlertView show];
+        [self setNetworkOnline:NO];
+    }
+    
+}
+
+-(void) incrementActiveFetches {
+    self.activeFetches++;
+    if (![[UIApplication sharedApplication] isNetworkActivityIndicatorVisible]) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    }
+}
+
+-(void) decrementActiveFetches {
+    if (self.activeFetches > 1) {
+        self.activeFetches--;
+        return;
+    }
+    self.activeFetches=0;
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 @end

@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface HCSViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface HCSViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;

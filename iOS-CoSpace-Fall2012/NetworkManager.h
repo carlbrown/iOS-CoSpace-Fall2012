@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RepoFetchOperation.h"
 
-@interface NetworkManager : NSObject
+@interface NetworkManager : NSObject <FetchNotifierDelegate>
+
++ (NetworkManager *)sharedManager;
+
+-(void) startInitialFetch;
 
 @end

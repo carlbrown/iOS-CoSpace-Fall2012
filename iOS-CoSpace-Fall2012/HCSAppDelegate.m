@@ -12,6 +12,8 @@
 
 #import "HCSViewController.h"
 
+#define kRESET_DATAFILE_EACH_RUN 1
+
 @implementation HCSAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -36,6 +38,10 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NSManagedObjectContextDidSaveNotification
+                                                  object:nil];
+
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -52,6 +58,10 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changesSaved:) name:NSManagedObjectContextDidSaveNotification
+                                               object:nil];
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -115,6 +125,19 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"iOS-CoSpace-Fall2012.sqlite"];
     
+#ifdef kRESET_DATAFILE_EACH_RUN
+#if kRESET_DATAFILE_EACH_RUN
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
+        NSLog(@"Re-initializing SQLite database at %@",[storeURL path]);
+        
+        NSError *error=nil;
+        if (![[NSFileManager defaultManager] removeItemAtPath:[storeURL path] error:&error]) {
+            NSLog(@"Unable to remove file '%@': %@",[storeURL path],[error localizedDescription]);
+        }
+    }
+#endif
+#endif
+
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
@@ -154,6 +177,20 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark - Core Data Save
+
+- (void)changesSaved:(NSNotification *)notification {
+    if (![NSThread isMainThread]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self changesSaved:notification];
+        });
+        return;
+    }
+    if ([notification object] != self.managedObjectContext) {
+        [self.managedObjectContext mergeChangesFromContextDidSaveNotification:notification];
+    }
 }
 
 @end

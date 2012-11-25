@@ -24,6 +24,8 @@
 		D311FBA11636159500797BF9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D311FB9F1636159500797BF9 /* InfoPlist.strings */; };
 		D311FBA41636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D311FBA31636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m */; };
 		D3412CC516619D230080930A /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3412CC416619D230080930A /* NetworkManager.m */; };
+		D3412CCB16619FF90080930A /* BaseFetchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3412CCA16619FF90080930A /* BaseFetchOperation.m */; };
+		D3412CCE1661A0DC0080930A /* RepoFetchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3412CCD1661A0DC0080930A /* RepoFetchOperation.m */; };
 		D355CF3316476FE1004E70DB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D355CF3216476FE1004E70DB /* Reachability.m */; };
 		D355CF3516476FF4004E70DB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D355CF3416476FF4004E70DB /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,10 @@
 		D311FBA31636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_CoSpace_Fall2012Tests.m; sourceTree = "<group>"; };
 		D3412CC316619D230080930A /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		D3412CC416619D230080930A /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		D3412CC916619FF90080930A /* BaseFetchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFetchOperation.h; sourceTree = "<group>"; };
+		D3412CCA16619FF90080930A /* BaseFetchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseFetchOperation.m; sourceTree = "<group>"; };
+		D3412CCC1661A0DC0080930A /* RepoFetchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoFetchOperation.h; sourceTree = "<group>"; };
+		D3412CCD1661A0DC0080930A /* RepoFetchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoFetchOperation.m; sourceTree = "<group>"; };
 		D355CF3116476FE1004E70DB /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = External/Reachability/Reachability.h; sourceTree = "<group>"; };
 		D355CF3216476FE1004E70DB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = External/Reachability/Reachability.m; sourceTree = "<group>"; };
 		D355CF3416476FF4004E70DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -131,6 +137,7 @@
 		D311FB7E1636159500797BF9 /* iOS-CoSpace-Fall2012 */ = {
 			isa = PBXGroup;
 			children = (
+				D3412CC716619FD00080930A /* Networking */,
 				D300238A1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodeld */,
 				D300238D1648A41E006C2A75 /* Repo.h */,
 				D300238E1648A41E006C2A75 /* Repo.m */,
@@ -140,8 +147,6 @@
 				D311FB8B1636159500797BF9 /* HCSViewController.m */,
 				D311FB8D1636159500797BF9 /* HCSViewController.xib */,
 				D311FB7F1636159500797BF9 /* Supporting Files */,
-				D3412CC316619D230080930A /* NetworkManager.h */,
-				D3412CC416619D230080930A /* NetworkManager.m */,
 			);
 			path = "iOS-CoSpace-Fall2012";
 			sourceTree = "<group>";
@@ -174,6 +179,27 @@
 				D311FB9F1636159500797BF9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D3412CC716619FD00080930A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D3412CC316619D230080930A /* NetworkManager.h */,
+				D3412CC416619D230080930A /* NetworkManager.m */,
+				D3412CC816619FDD0080930A /* Operations */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		D3412CC816619FDD0080930A /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				D3412CCC1661A0DC0080930A /* RepoFetchOperation.h */,
+				D3412CCD1661A0DC0080930A /* RepoFetchOperation.m */,
+				D3412CC916619FF90080930A /* BaseFetchOperation.h */,
+				D3412CCA16619FF90080930A /* BaseFetchOperation.m */,
+			);
+			name = Operations;
 			sourceTree = "<group>";
 		};
 		D355CF2E16476FC1004E70DB /* External */ = {
@@ -308,6 +334,8 @@
 				D300238C1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodeld in Sources */,
 				D300238F1648A41E006C2A75 /* Repo.m in Sources */,
 				D3412CC516619D230080930A /* NetworkManager.m in Sources */,
+				D3412CCB16619FF90080930A /* BaseFetchOperation.m in Sources */,
+				D3412CCE1661A0DC0080930A /* RepoFetchOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
