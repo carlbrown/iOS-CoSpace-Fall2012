@@ -41,8 +41,8 @@
     [[NetworkManager sharedManager] setBaseURLString:[NSString stringWithFormat:@"http://localhost:%u/",[self.testServer port]]];
     [[NetworkManager sharedManager] setForkFetchURLPath:@"example.json"];
     
-    
-    
+    [[NetworkManager sharedManager] setMainContext:self.managedObjectContext];
+
     // Set-up code here.
 }
 
@@ -61,8 +61,6 @@
     
     STAssertEquals((uint) 0, (uint) [existingRepos count], @"Shouldn't have any repos in new store");
 
-    
-    [[NetworkManager sharedManager] setMainContext:self.managedObjectContext];
     [[NetworkManager sharedManager] startInitialFetch];
     
     while ([[[NetworkManager sharedManager] fetchQueue] operationCount] > 0) {
