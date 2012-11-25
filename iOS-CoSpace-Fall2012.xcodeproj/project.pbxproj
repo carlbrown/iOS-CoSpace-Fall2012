@@ -22,10 +22,16 @@
 		D311FB981636159500797BF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB781636159500797BF9 /* UIKit.framework */; };
 		D311FB991636159500797BF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7A1636159500797BF9 /* Foundation.framework */; };
 		D311FBA11636159500797BF9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D311FB9F1636159500797BF9 /* InfoPlist.strings */; };
-		D311FBA41636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D311FBA31636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m */; };
 		D3412CC516619D230080930A /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3412CC416619D230080930A /* NetworkManager.m */; };
 		D3412CCB16619FF90080930A /* BaseFetchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3412CCA16619FF90080930A /* BaseFetchOperation.m */; };
 		D3412CCE1661A0DC0080930A /* RepoFetchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D3412CCD1661A0DC0080930A /* RepoFetchOperation.m */; };
+		D3412CDC1661B2BB0080930A /* GTMHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = D3412CD41661B2BB0080930A /* GTMHTTPServer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D3412CDD1661B2BB0080930A /* GTMRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D3412CD61661B2BB0080930A /* GTMRegex.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D3412CDE1661B2BB0080930A /* GTMTestHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = D3412CD81661B2BB0080930A /* GTMTestHTTPServer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D3412CDF1661B2BB0080930A /* PDBackgroundHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = D3412CDB1661B2BB0080930A /* PDBackgroundHTTPServer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D3412CE61661B3020080930A /* HCSSyntheticServerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3412CE51661B3020080930A /* HCSSyntheticServerTest.m */; };
+		D3412CE91661B4880080930A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3412CE81661B4880080930A /* CFNetwork.framework */; };
+		D3412CEC1661B4CC0080930A /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = D3412CEB1661B4CC0080930A /* example.json */; };
 		D355CF3316476FE1004E70DB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D355CF3216476FE1004E70DB /* Reachability.m */; };
 		D355CF3516476FF4004E70DB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D355CF3416476FF4004E70DB /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
@@ -62,14 +68,29 @@
 		D311FB961636159500797BF9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		D311FB9E1636159500797BF9 /* iOS-CoSpace-Fall2012Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-CoSpace-Fall2012Tests-Info.plist"; sourceTree = "<group>"; };
 		D311FBA01636159500797BF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D311FBA21636159500797BF9 /* iOS_CoSpace_Fall2012Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOS_CoSpace_Fall2012Tests.h; sourceTree = "<group>"; };
-		D311FBA31636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_CoSpace_Fall2012Tests.m; sourceTree = "<group>"; };
 		D3412CC316619D230080930A /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		D3412CC416619D230080930A /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		D3412CC916619FF90080930A /* BaseFetchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFetchOperation.h; sourceTree = "<group>"; };
 		D3412CCA16619FF90080930A /* BaseFetchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseFetchOperation.m; sourceTree = "<group>"; };
 		D3412CCC1661A0DC0080930A /* RepoFetchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoFetchOperation.h; sourceTree = "<group>"; };
 		D3412CCD1661A0DC0080930A /* RepoFetchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoFetchOperation.m; sourceTree = "<group>"; };
+		D3412CD01661B2BB0080930A /* GTMDebugSelectorValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDebugSelectorValidation.h; path = External/SyntheticServerTest/TestSupport/GTMDebugSelectorValidation.h; sourceTree = "<group>"; };
+		D3412CD11661B2BB0080930A /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = External/SyntheticServerTest/TestSupport/GTMDefines.h; sourceTree = "<group>"; };
+		D3412CD21661B2BB0080930A /* GTMGarbageCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMGarbageCollection.h; path = External/SyntheticServerTest/TestSupport/GTMGarbageCollection.h; sourceTree = "<group>"; };
+		D3412CD31661B2BB0080930A /* GTMHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMHTTPServer.h; path = External/SyntheticServerTest/TestSupport/GTMHTTPServer.h; sourceTree = "<group>"; };
+		D3412CD41661B2BB0080930A /* GTMHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMHTTPServer.m; path = External/SyntheticServerTest/TestSupport/GTMHTTPServer.m; sourceTree = "<group>"; };
+		D3412CD51661B2BB0080930A /* GTMRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMRegex.h; path = External/SyntheticServerTest/TestSupport/GTMRegex.h; sourceTree = "<group>"; };
+		D3412CD61661B2BB0080930A /* GTMRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMRegex.m; path = External/SyntheticServerTest/TestSupport/GTMRegex.m; sourceTree = "<group>"; };
+		D3412CD71661B2BB0080930A /* GTMTestHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMTestHTTPServer.h; path = External/SyntheticServerTest/TestSupport/GTMTestHTTPServer.h; sourceTree = "<group>"; };
+		D3412CD81661B2BB0080930A /* GTMTestHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMTestHTTPServer.m; path = External/SyntheticServerTest/TestSupport/GTMTestHTTPServer.m; sourceTree = "<group>"; };
+		D3412CD91661B2BB0080930A /* GTMTypeCasting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMTypeCasting.h; path = External/SyntheticServerTest/TestSupport/GTMTypeCasting.h; sourceTree = "<group>"; };
+		D3412CDA1661B2BB0080930A /* PDBackgroundHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDBackgroundHTTPServer.h; path = External/SyntheticServerTest/TestSupport/PDBackgroundHTTPServer.h; sourceTree = "<group>"; };
+		D3412CDB1661B2BB0080930A /* PDBackgroundHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDBackgroundHTTPServer.m; path = External/SyntheticServerTest/TestSupport/PDBackgroundHTTPServer.m; sourceTree = "<group>"; };
+		D3412CE41661B3020080930A /* HCSSyntheticServerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSSyntheticServerTest.h; sourceTree = "<group>"; };
+		D3412CE51661B3020080930A /* HCSSyntheticServerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSSyntheticServerTest.m; sourceTree = "<group>"; };
+		D3412CE71661B3A20080930A /* NetworkManager+Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetworkManager+Tests.h"; sourceTree = "<group>"; };
+		D3412CE81661B4880080930A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D3412CEB1661B4CC0080930A /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = example.json; path = TestData/example.json; sourceTree = SOURCE_ROOT; };
 		D355CF3116476FE1004E70DB /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = External/Reachability/Reachability.h; sourceTree = "<group>"; };
 		D355CF3216476FE1004E70DB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = External/Reachability/Reachability.m; sourceTree = "<group>"; };
 		D355CF3416476FF4004E70DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -92,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3412CE91661B4880080930A /* CFNetwork.framework in Frameworks */,
 				D311FB971636159500797BF9 /* SenTestingKit.framework in Frameworks */,
 				D311FB981636159500797BF9 /* UIKit.framework in Frameworks */,
 				D311FB991636159500797BF9 /* Foundation.framework in Frameworks */,
@@ -104,6 +126,7 @@
 		D311FB691636159500797BF9 = {
 			isa = PBXGroup;
 			children = (
+				D3412CE81661B4880080930A /* CFNetwork.framework */,
 				D311FB7E1636159500797BF9 /* iOS-CoSpace-Fall2012 */,
 				D311FB9C1636159500797BF9 /* iOS-CoSpace-Fall2012Tests */,
 				D355CF2E16476FC1004E70DB /* External */,
@@ -165,9 +188,11 @@
 		D311FB9C1636159500797BF9 /* iOS-CoSpace-Fall2012Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D311FBA21636159500797BF9 /* iOS_CoSpace_Fall2012Tests.h */,
-				D311FBA31636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m */,
+				D3412CEA1661B4B30080930A /* TestData */,
 				D311FB9D1636159500797BF9 /* Supporting Files */,
+				D3412CE41661B3020080930A /* HCSSyntheticServerTest.h */,
+				D3412CE51661B3020080930A /* HCSSyntheticServerTest.m */,
+				D3412CE71661B3A20080930A /* NetworkManager+Tests.h */,
 			);
 			path = "iOS-CoSpace-Fall2012Tests";
 			sourceTree = "<group>";
@@ -202,9 +227,37 @@
 			name = Operations;
 			sourceTree = "<group>";
 		};
+		D3412CCF1661B2880080930A /* SyntheticServerTest */ = {
+			isa = PBXGroup;
+			children = (
+				D3412CD01661B2BB0080930A /* GTMDebugSelectorValidation.h */,
+				D3412CD11661B2BB0080930A /* GTMDefines.h */,
+				D3412CD21661B2BB0080930A /* GTMGarbageCollection.h */,
+				D3412CD31661B2BB0080930A /* GTMHTTPServer.h */,
+				D3412CD41661B2BB0080930A /* GTMHTTPServer.m */,
+				D3412CD51661B2BB0080930A /* GTMRegex.h */,
+				D3412CD61661B2BB0080930A /* GTMRegex.m */,
+				D3412CD71661B2BB0080930A /* GTMTestHTTPServer.h */,
+				D3412CD81661B2BB0080930A /* GTMTestHTTPServer.m */,
+				D3412CD91661B2BB0080930A /* GTMTypeCasting.h */,
+				D3412CDA1661B2BB0080930A /* PDBackgroundHTTPServer.h */,
+				D3412CDB1661B2BB0080930A /* PDBackgroundHTTPServer.m */,
+			);
+			name = SyntheticServerTest;
+			sourceTree = "<group>";
+		};
+		D3412CEA1661B4B30080930A /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				D3412CEB1661B4CC0080930A /* example.json */,
+			);
+			name = TestData;
+			sourceTree = "<group>";
+		};
 		D355CF2E16476FC1004E70DB /* External */ = {
 			isa = PBXGroup;
 			children = (
+				D3412CCF1661B2880080930A /* SyntheticServerTest */,
 				D355CF3016476FCC004E70DB /* Reachability */,
 			);
 			name = External;
@@ -301,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D311FBA11636159500797BF9 /* InfoPlist.strings in Resources */,
+				D3412CEC1661B4CC0080930A /* example.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +397,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D311FBA41636159500797BF9 /* iOS_CoSpace_Fall2012Tests.m in Sources */,
+				D3412CDC1661B2BB0080930A /* GTMHTTPServer.m in Sources */,
+				D3412CDD1661B2BB0080930A /* GTMRegex.m in Sources */,
+				D3412CDE1661B2BB0080930A /* GTMTestHTTPServer.m in Sources */,
+				D3412CDF1661B2BB0080930A /* PDBackgroundHTTPServer.m in Sources */,
+				D3412CE61661B3020080930A /* HCSSyntheticServerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

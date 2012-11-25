@@ -18,6 +18,7 @@ static NetworkManager __strong *sharedManager = nil;
 
 @interface NetworkManager ()
 @property (nonatomic, strong) NSString *baseURLString;
+@property (nonatomic, strong) NSString *forkFetchURLPath;
 @property (nonatomic, strong) NSOperationQueue *fetchQueue;
 @property (nonatomic, weak) NSManagedObjectContext *mainContext;
 @property (nonatomic, assign, getter = isNetworkOnline) BOOL networkOnline;
@@ -37,6 +38,7 @@ static NetworkManager __strong *sharedManager = nil;
         sharedManager = [[self alloc] init];
         [sharedManager setFetchQueue:[[NSOperationQueue alloc] init]];
         [sharedManager setBaseURLString:kBaseAPIURL];
+        [sharedManager setForkFetchURLPath:kForkFetchURLPath];
         [sharedManager setMainContext:[(HCSAppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext]];
         //Assume the network is up to start with
         [sharedManager setNetworkOnline:YES];
@@ -45,6 +47,7 @@ static NetworkManager __strong *sharedManager = nil;
          selector: @selector(reachabilityChanged:) name: kReachabilityChangedNotification object: nil];
         
         [sharedManager setHostReach:[Reachability reachabilityWithHostname:[[NSURL URLWithString:kBaseAPIURL] host]]];
+
         
         [sharedManager reactToReachability:[sharedManager hostReach]];
         [sharedManager setActiveFetches:0];
@@ -89,7 +92,7 @@ static NetworkManager __strong *sharedManager = nil;
 }
 
 -(void) startInitialFetch {
-    [self queuePageFetchForRelativePath:kForkFetchURLPath];
+    [self queuePageFetchForRelativePath:self.forkFetchURLPath];
 }
 
 -(void) fetchDidFailWithError:(NSError *) error {
