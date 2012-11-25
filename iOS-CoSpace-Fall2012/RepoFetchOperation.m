@@ -8,6 +8,7 @@
 
 #import "RepoFetchOperation.h"
 #import "Repo.h"
+#import "HCSJSONParsingManager.h"
 
 @implementation RepoFetchOperation
 @synthesize mainContext = _mainContext;
@@ -33,37 +34,34 @@
         return;
     }
     
-    NSError *parseError=nil;
     
-    NSArray *parsedJSONArray = [NSJSONSerialization JSONObjectWithData:self.fetchedData options:NSJSONReadingMutableContainers error:&parseError];
-    if (!parsedJSONArray) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Parse Error" message:[parseError description] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        [alert show];
-        return;
-    }
+    HCSJSONParsingManager *jsonMgr = [[HCSJSONParsingManager alloc] init];
+
+    NSArray *ownerArray = [jsonMgr parsedArrayFromJSONData:self.fetchedData];
+
     NSManagedObjectContext *context = [[NSManagedObjectContext alloc] init];
     [context setPersistentStoreCoordinator:self.mainContext.persistentStoreCoordinator];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Repo" inManagedObjectContext:context];
     
-    for (NSDictionary *repoDict in parsedJSONArray) {
+    for (NSString *ownerName in ownerArray) {
         //Now, check in Core Data to see if we already have recorded this event
         NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Repo class])];
         [fetchRequest setFetchLimit:1];
         //NSLog(@"Checking for repo from user %@",[repoDict valueForKeyPath:@"owner.login"]);
         NSPredicate *ownerInfo = [NSPredicate predicateWithFormat:@"login = %@",
-                                  [repoDict valueForKeyPath:@"owner.login"]];
+                                  ownerName];
         [fetchRequest setPredicate:ownerInfo];
         NSError *fetchError=nil;
         NSArray *existingEventsMatchingThisOne = [context executeFetchRequest:fetchRequest error:&fetchError];
         if (existingEventsMatchingThisOne==nil) {
             NSLog(@"Error checking for existing record: %@",[fetchError localizedDescription]);
         } else if ([existingEventsMatchingThisOne count]>0) {
-            NSLog(@"Already had a copy of Repo from %@. Not saving duplicate.",[repoDict valueForKeyPath:@"owner.login"]);
+            NSLog(@"Already had a copy of Repo from %@. Not saving duplicate.",ownerName);
         } else {
             NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
             // If appropriate, configure the new managed object.
             // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-            [newManagedObject setValue:[repoDict valueForKeyPath:@"owner.login"] forKey:@"login"];
+            [newManagedObject setValue:ownerName forKey:@"login"];
             //NSLog(@"Saving repo from user %@",[repoDict valueForKeyPath:@"owner.login"]);
 
             // Save the context.

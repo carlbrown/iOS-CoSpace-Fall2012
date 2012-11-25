@@ -11,6 +11,8 @@
 		D300238C1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D300238A1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodeld */; };
 		D300238F1648A41E006C2A75 /* Repo.m in Sources */ = {isa = PBXBuildFile; fileRef = D300238E1648A41E006C2A75 /* Repo.m */; };
 		D30743FF1661B84A00D7EDEF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30023871648A21E006C2A75 /* CoreData.framework */; };
+		D30744041661BB1800D7EDEF /* HCSJSONParsingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D30744031661BB1800D7EDEF /* HCSJSONParsingManager.m */; };
+		D30744071661BCDD00D7EDEF /* HCSJSONParsingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D30744061661BCDD00D7EDEF /* HCSJSONParsingTest.m */; };
 		D311FB791636159500797BF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB781636159500797BF9 /* UIKit.framework */; };
 		D311FB7B1636159500797BF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7A1636159500797BF9 /* Foundation.framework */; };
 		D311FB7D1636159500797BF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7C1636159500797BF9 /* CoreGraphics.framework */; };
@@ -52,6 +54,10 @@
 		D300238B1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iOS-CoSpace-Fall2012.xcdatamodel"; sourceTree = "<group>"; };
 		D300238D1648A41E006C2A75 /* Repo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Repo.h; path = ../Repo.h; sourceTree = "<group>"; };
 		D300238E1648A41E006C2A75 /* Repo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Repo.m; path = ../Repo.m; sourceTree = "<group>"; };
+		D30744021661BB1800D7EDEF /* HCSJSONParsingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSJSONParsingManager.h; sourceTree = "<group>"; };
+		D30744031661BB1800D7EDEF /* HCSJSONParsingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSJSONParsingManager.m; sourceTree = "<group>"; };
+		D30744051661BCDD00D7EDEF /* HCSJSONParsingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSJSONParsingTest.h; sourceTree = "<group>"; };
+		D30744061661BCDD00D7EDEF /* HCSJSONParsingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSJSONParsingTest.m; sourceTree = "<group>"; };
 		D311FB741636159500797BF9 /* iOS-CoSpace-Fall2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-CoSpace-Fall2012.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D311FB781636159500797BF9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D311FB7A1636159500797BF9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -125,6 +131,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D30744011661BA7900D7EDEF /* TestableHelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				D30744021661BB1800D7EDEF /* HCSJSONParsingManager.h */,
+				D30744031661BB1800D7EDEF /* HCSJSONParsingManager.m */,
+			);
+			name = TestableHelperClasses;
+			sourceTree = "<group>";
+		};
 		D311FB691636159500797BF9 = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +210,8 @@
 				D3412CE41661B3020080930A /* HCSSyntheticServerTest.h */,
 				D3412CE51661B3020080930A /* HCSSyntheticServerTest.m */,
 				D3412CE71661B3A20080930A /* NetworkManager+Tests.h */,
+				D30744051661BCDD00D7EDEF /* HCSJSONParsingTest.h */,
+				D30744061661BCDD00D7EDEF /* HCSJSONParsingTest.m */,
 			);
 			path = "iOS-CoSpace-Fall2012Tests";
 			sourceTree = "<group>";
@@ -211,6 +228,7 @@
 		D3412CC716619FD00080930A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				D30744011661BA7900D7EDEF /* TestableHelperClasses */,
 				D3412CC316619D230080930A /* NetworkManager.h */,
 				D3412CC416619D230080930A /* NetworkManager.m */,
 				D3412CC816619FDD0080930A /* Operations */,
@@ -392,6 +410,7 @@
 				D3412CC516619D230080930A /* NetworkManager.m in Sources */,
 				D3412CCB16619FF90080930A /* BaseFetchOperation.m in Sources */,
 				D3412CCE1661A0DC0080930A /* RepoFetchOperation.m in Sources */,
+				D30744041661BB1800D7EDEF /* HCSJSONParsingManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +423,7 @@
 				D3412CDE1661B2BB0080930A /* GTMTestHTTPServer.m in Sources */,
 				D3412CDF1661B2BB0080930A /* PDBackgroundHTTPServer.m in Sources */,
 				D3412CE61661B3020080930A /* HCSSyntheticServerTest.m in Sources */,
+				D30744071661BCDD00D7EDEF /* HCSJSONParsingTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
