@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString *baseURLString;
 @property (nonatomic, strong) NSString *forkFetchURLPath;
 @property (nonatomic, strong) NSOperationQueue *fetchQueue;
+@property (nonatomic, weak) NSManagedObjectContext *mainContext;
 @end
 
 

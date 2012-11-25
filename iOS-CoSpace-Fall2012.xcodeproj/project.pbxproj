@@ -10,6 +10,7 @@
 		D30023881648A21E006C2A75 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30023871648A21E006C2A75 /* CoreData.framework */; };
 		D300238C1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D300238A1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodeld */; };
 		D300238F1648A41E006C2A75 /* Repo.m in Sources */ = {isa = PBXBuildFile; fileRef = D300238E1648A41E006C2A75 /* Repo.m */; };
+		D30743FF1661B84A00D7EDEF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30023871648A21E006C2A75 /* CoreData.framework */; };
 		D311FB791636159500797BF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB781636159500797BF9 /* UIKit.framework */; };
 		D311FB7B1636159500797BF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7A1636159500797BF9 /* Foundation.framework */; };
 		D311FB7D1636159500797BF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7C1636159500797BF9 /* CoreGraphics.framework */; };
@@ -113,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D30743FF1661B84A00D7EDEF /* CoreData.framework in Frameworks */,
 				D3412CE91661B4880080930A /* CFNetwork.framework in Frameworks */,
 				D311FB971636159500797BF9 /* SenTestingKit.framework in Frameworks */,
 				D311FB981636159500797BF9 /* UIKit.framework in Frameworks */,
@@ -126,7 +128,6 @@
 		D311FB691636159500797BF9 = {
 			isa = PBXGroup;
 			children = (
-				D3412CE81661B4880080930A /* CFNetwork.framework */,
 				D311FB7E1636159500797BF9 /* iOS-CoSpace-Fall2012 */,
 				D311FB9C1636159500797BF9 /* iOS-CoSpace-Fall2012Tests */,
 				D355CF2E16476FC1004E70DB /* External */,
@@ -147,6 +148,7 @@
 		D311FB771636159500797BF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3412CE81661B4880080930A /* CFNetwork.framework */,
 				D30023871648A21E006C2A75 /* CoreData.framework */,
 				D311FB781636159500797BF9 /* UIKit.framework */,
 				D311FB7A1636159500797BF9 /* Foundation.framework */,
