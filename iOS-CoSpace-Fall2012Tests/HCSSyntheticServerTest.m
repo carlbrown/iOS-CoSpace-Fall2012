@@ -18,6 +18,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (readonly, strong, nonatomic) NSFetchRequest *fetchRequest;
 
 @end
 
@@ -26,6 +27,7 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize fetchRequest = _fetchRequest;
 
 - (void)setUp
 {
@@ -53,15 +55,9 @@
 }
 
 -(void) testFetchForks {
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Repo class])];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"login" ascending:YES];
-    NSArray *sortDescriptors = @[sortDescriptor];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-
     //NSLog(@"Checking for repo from user %@",[repoDict valueForKeyPath:@"owner.login"]);
     NSError *fetchError=nil;
-    NSArray *existingRepos = [self.managedObjectContext executeFetchRequest:fetchRequest error:&fetchError];
+    NSArray *existingRepos = [self.managedObjectContext executeFetchRequest:self.fetchRequest error:&fetchError];
     
     STAssertEquals((uint) 0, (uint) [existingRepos count], @"Shouldn't have any repos in new store");
 
@@ -73,7 +69,7 @@
         [[NSRunLoop currentRunLoop] runMode:NSRunLoopCommonModes beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
     
-    NSArray *foundRepos = [self.managedObjectContext executeFetchRequest:fetchRequest error:&fetchError];
+    NSArray *foundRepos = [self.managedObjectContext executeFetchRequest:self.fetchRequest error:&fetchError];
 
     
     STAssertEquals((uint) 11, (uint) [foundRepos count], @"Should have added 11 repos");
@@ -147,6 +143,20 @@
     }
     
     return _persistentStoreCoordinator;
+}
+
+-(NSFetchRequest *) fetchRequest {
+    if (_fetchRequest != nil) {
+        return _fetchRequest;
+    }
+
+    _fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Repo class])];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"login" ascending:YES];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [_fetchRequest setSortDescriptors:sortDescriptors];
+    
+    return _fetchRequest;
 }
 
 @end
