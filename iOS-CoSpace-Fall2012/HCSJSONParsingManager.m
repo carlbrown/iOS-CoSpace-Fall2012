@@ -8,6 +8,8 @@
 
 #import "HCSJSONParsingManager.h"
 
+#import "HCSJSONDataExtractor.h"
+
 @implementation HCSJSONParsingManager
 
 -(NSArray *) parsedArrayFromJSONData:(NSData *) dataForJSONParsing {
@@ -19,11 +21,10 @@
         [alert show];
         return nil;
     }
-    NSMutableArray *retVal = [NSMutableArray arrayWithCapacity:[parsedJSONArray count]];
-    for (NSDictionary *repoDict in parsedJSONArray) {
-        [retVal addObject:[repoDict valueForKeyPath:@"owner.login"]];
-    }
-    return [NSArray arrayWithArray:retVal];
+    
+    HCSJSONDataExtractor *extractor = [[HCSJSONDataExtractor alloc] init];
+    
+    return [NSArray arrayWithArray:[extractor arrayExtractedFromJSONArray:parsedJSONArray]];
 }
 
 @end

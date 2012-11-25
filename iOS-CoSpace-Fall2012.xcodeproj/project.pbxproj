@@ -13,6 +13,9 @@
 		D30743FF1661B84A00D7EDEF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30023871648A21E006C2A75 /* CoreData.framework */; };
 		D30744041661BB1800D7EDEF /* HCSJSONParsingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D30744031661BB1800D7EDEF /* HCSJSONParsingManager.m */; };
 		D30744071661BCDD00D7EDEF /* HCSJSONParsingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D30744061661BCDD00D7EDEF /* HCSJSONParsingTest.m */; };
+		D307440F1661D19500D7EDEF /* HCSJSONDataExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = D307440D1661D09400D7EDEF /* HCSJSONDataExtractor.m */; };
+		D30744121661D1B600D7EDEF /* HCSDataExtractionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D30744111661D1B600D7EDEF /* HCSDataExtractionTest.m */; };
+		D30744141661D70C00D7EDEF /* exampleJSONData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D30744131661D70C00D7EDEF /* exampleJSONData.plist */; };
 		D311FB791636159500797BF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB781636159500797BF9 /* UIKit.framework */; };
 		D311FB7B1636159500797BF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7A1636159500797BF9 /* Foundation.framework */; };
 		D311FB7D1636159500797BF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7C1636159500797BF9 /* CoreGraphics.framework */; };
@@ -58,6 +61,11 @@
 		D30744031661BB1800D7EDEF /* HCSJSONParsingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSJSONParsingManager.m; sourceTree = "<group>"; };
 		D30744051661BCDD00D7EDEF /* HCSJSONParsingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSJSONParsingTest.h; sourceTree = "<group>"; };
 		D30744061661BCDD00D7EDEF /* HCSJSONParsingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSJSONParsingTest.m; sourceTree = "<group>"; };
+		D307440C1661D09400D7EDEF /* HCSJSONDataExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSJSONDataExtractor.h; sourceTree = "<group>"; };
+		D307440D1661D09400D7EDEF /* HCSJSONDataExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSJSONDataExtractor.m; sourceTree = "<group>"; };
+		D30744101661D1B600D7EDEF /* HCSDataExtractionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSDataExtractionTest.h; sourceTree = "<group>"; };
+		D30744111661D1B600D7EDEF /* HCSDataExtractionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSDataExtractionTest.m; sourceTree = "<group>"; };
+		D30744131661D70C00D7EDEF /* exampleJSONData.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = exampleJSONData.plist; path = TestData/exampleJSONData.plist; sourceTree = SOURCE_ROOT; };
 		D311FB741636159500797BF9 /* iOS-CoSpace-Fall2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-CoSpace-Fall2012.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D311FB781636159500797BF9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D311FB7A1636159500797BF9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -136,6 +144,8 @@
 			children = (
 				D30744021661BB1800D7EDEF /* HCSJSONParsingManager.h */,
 				D30744031661BB1800D7EDEF /* HCSJSONParsingManager.m */,
+				D307440C1661D09400D7EDEF /* HCSJSONDataExtractor.h */,
+				D307440D1661D09400D7EDEF /* HCSJSONDataExtractor.m */,
 			);
 			name = TestableHelperClasses;
 			sourceTree = "<group>";
@@ -212,6 +222,8 @@
 				D3412CE71661B3A20080930A /* NetworkManager+Tests.h */,
 				D30744051661BCDD00D7EDEF /* HCSJSONParsingTest.h */,
 				D30744061661BCDD00D7EDEF /* HCSJSONParsingTest.m */,
+				D30744101661D1B600D7EDEF /* HCSDataExtractionTest.h */,
+				D30744111661D1B600D7EDEF /* HCSDataExtractionTest.m */,
 			);
 			path = "iOS-CoSpace-Fall2012Tests";
 			sourceTree = "<group>";
@@ -269,6 +281,7 @@
 		D3412CEA1661B4B30080930A /* TestData */ = {
 			isa = PBXGroup;
 			children = (
+				D30744131661D70C00D7EDEF /* exampleJSONData.plist */,
 				D3412CEB1661B4CC0080930A /* example.json */,
 			);
 			name = TestData;
@@ -375,6 +388,7 @@
 			files = (
 				D311FBA11636159500797BF9 /* InfoPlist.strings in Resources */,
 				D3412CEC1661B4CC0080930A /* example.json in Resources */,
+				D30744141661D70C00D7EDEF /* exampleJSONData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +425,7 @@
 				D3412CCB16619FF90080930A /* BaseFetchOperation.m in Sources */,
 				D3412CCE1661A0DC0080930A /* RepoFetchOperation.m in Sources */,
 				D30744041661BB1800D7EDEF /* HCSJSONParsingManager.m in Sources */,
+				D307440F1661D19500D7EDEF /* HCSJSONDataExtractor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +439,7 @@
 				D3412CDF1661B2BB0080930A /* PDBackgroundHTTPServer.m in Sources */,
 				D3412CE61661B3020080930A /* HCSSyntheticServerTest.m in Sources */,
 				D30744071661BCDD00D7EDEF /* HCSJSONParsingTest.m in Sources */,
+				D30744121661D1B600D7EDEF /* HCSDataExtractionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
