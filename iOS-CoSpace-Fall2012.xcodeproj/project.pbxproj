@@ -14,8 +14,8 @@
 		D30744041661BB1800D7EDEF /* HCSJSONParsingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D30744031661BB1800D7EDEF /* HCSJSONParsingManager.m */; };
 		D30744071661BCDD00D7EDEF /* HCSJSONParsingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D30744061661BCDD00D7EDEF /* HCSJSONParsingTest.m */; };
 		D307440F1661D19500D7EDEF /* HCSJSONDataExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = D307440D1661D09400D7EDEF /* HCSJSONDataExtractor.m */; };
-		D30744121661D1B600D7EDEF /* HCSDataExtractionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D30744111661D1B600D7EDEF /* HCSDataExtractionTest.m */; };
 		D30744141661D70C00D7EDEF /* exampleJSONData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D30744131661D70C00D7EDEF /* exampleJSONData.plist */; };
+		D307441716644CEB00D7EDEF /* HCSDataExtractionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D30744111661D1B600D7EDEF /* HCSDataExtractionTest.m */; };
 		D311FB791636159500797BF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB781636159500797BF9 /* UIKit.framework */; };
 		D311FB7B1636159500797BF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7A1636159500797BF9 /* Foundation.framework */; };
 		D311FB7D1636159500797BF9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D311FB7C1636159500797BF9 /* CoreGraphics.framework */; };
@@ -40,6 +40,8 @@
 		D3412CEC1661B4CC0080930A /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = D3412CEB1661B4CC0080930A /* example.json */; };
 		D355CF3316476FE1004E70DB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D355CF3216476FE1004E70DB /* Reachability.m */; };
 		D355CF3516476FF4004E70DB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D355CF3416476FF4004E70DB /* SystemConfiguration.framework */; };
+		D3DDBBA0166C66640089FF87 /* HCSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DDBB9E166C66640089FF87 /* HCSDetailViewController.m */; };
+		D3DDBBA1166C66640089FF87 /* HCSDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3DDBB9F166C66640089FF87 /* HCSDetailViewController_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,10 @@
 		D355CF3116476FE1004E70DB /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = External/Reachability/Reachability.h; sourceTree = "<group>"; };
 		D355CF3216476FE1004E70DB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = External/Reachability/Reachability.m; sourceTree = "<group>"; };
 		D355CF3416476FF4004E70DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D3DDBB9C166C64E50089FF87 /* iOS-CoSpace-Fall 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iOS-CoSpace-Fall 2.xcdatamodel"; sourceTree = "<group>"; };
+		D3DDBB9D166C66640089FF87 /* HCSDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSDetailViewController.h; sourceTree = "<group>"; };
+		D3DDBB9E166C66640089FF87 /* HCSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSDetailViewController.m; sourceTree = "<group>"; };
+		D3DDBB9F166C66640089FF87 /* HCSDetailViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HCSDetailViewController_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +203,9 @@
 				D311FB8B1636159500797BF9 /* HCSViewController.m */,
 				D311FB8D1636159500797BF9 /* HCSViewController.xib */,
 				D311FB7F1636159500797BF9 /* Supporting Files */,
+				D3DDBB9D166C66640089FF87 /* HCSDetailViewController.h */,
+				D3DDBB9E166C66640089FF87 /* HCSDetailViewController.m */,
+				D3DDBB9F166C66640089FF87 /* HCSDetailViewController_iPhone.xib */,
 			);
 			path = "iOS-CoSpace-Fall2012";
 			sourceTree = "<group>";
@@ -379,6 +388,7 @@
 			files = (
 				D311FB831636159500797BF9 /* InfoPlist.strings in Resources */,
 				D311FB8F1636159500797BF9 /* HCSViewController.xib in Resources */,
+				D3DDBBA1166C66640089FF87 /* HCSDetailViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +436,7 @@
 				D3412CCE1661A0DC0080930A /* RepoFetchOperation.m in Sources */,
 				D30744041661BB1800D7EDEF /* HCSJSONParsingManager.m in Sources */,
 				D307440F1661D19500D7EDEF /* HCSJSONDataExtractor.m in Sources */,
+				D3DDBBA0166C66640089FF87 /* HCSDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +450,7 @@
 				D3412CDF1661B2BB0080930A /* PDBackgroundHTTPServer.m in Sources */,
 				D3412CE61661B3020080930A /* HCSSyntheticServerTest.m in Sources */,
 				D30744071661BCDD00D7EDEF /* HCSJSONParsingTest.m in Sources */,
-				D30744121661D1B600D7EDEF /* HCSDataExtractionTest.m in Sources */,
+				D307441716644CEB00D7EDEF /* HCSDataExtractionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,7 +547,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS-CoSpace-Fall2012/iOS-CoSpace-Fall2012-Prefix.pch";
 				INFOPLIST_FILE = "iOS-CoSpace-Fall2012/iOS-CoSpace-Fall2012-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -547,7 +560,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS-CoSpace-Fall2012/iOS-CoSpace-Fall2012-Prefix.pch";
 				INFOPLIST_FILE = "iOS-CoSpace-Fall2012/iOS-CoSpace-Fall2012-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -622,9 +637,10 @@
 		D300238A1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D3DDBB9C166C64E50089FF87 /* iOS-CoSpace-Fall 2.xcdatamodel */,
 				D300238B1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodel */,
 			);
-			currentVersion = D300238B1648A38C006C2A75 /* iOS-CoSpace-Fall2012.xcdatamodel */;
+			currentVersion = D3DDBB9C166C64E50089FF87 /* iOS-CoSpace-Fall 2.xcdatamodel */;
 			path = "iOS-CoSpace-Fall2012.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

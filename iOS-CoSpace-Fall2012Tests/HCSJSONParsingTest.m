@@ -15,7 +15,8 @@
     NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"example"
                                                                                                        ofType:@"json"]];
     HCSJSONParsingManager *jsonMgr = [[HCSJSONParsingManager alloc] init];
-    NSArray *ownerNames = [jsonMgr parsedArrayFromJSONData:jsonData];
+    NSArray *ownerNames = [[jsonMgr parsedArrayFromJSONData:jsonData] valueForKey:@"login"];
+
     STAssertEquals((uint) 11, (uint) [ownerNames count], @"Should have added 11 repos");
     STAssertEqualObjects(@"mjhaller", [ownerNames objectAtIndex:0], @"Element 0 incorrect");
     STAssertEqualObjects(@"smmcbride", [ownerNames objectAtIndex:1], @"Element 1 incorrect");

@@ -43,7 +43,9 @@
     [context setPersistentStoreCoordinator:self.mainContext.persistentStoreCoordinator];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Repo" inManagedObjectContext:context];
     
-    for (NSString *ownerName in ownerArray) {
+    for (NSDictionary *ownerDict in ownerArray) {
+        NSString *ownerName = [ownerDict objectForKey:@"login"];
+        NSString *ownerURL = [ownerDict objectForKey:@"html_url"];
         //Now, check in Core Data to see if we already have recorded this event
         NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Repo class])];
         [fetchRequest setFetchLimit:1];
@@ -62,6 +64,7 @@
             // If appropriate, configure the new managed object.
             // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
             [newManagedObject setValue:ownerName forKey:@"login"];
+            [newManagedObject setValue:ownerURL forKey:@"url"];
             //NSLog(@"Saving repo from user %@",[repoDict valueForKeyPath:@"owner.login"]);
 
             // Save the context.

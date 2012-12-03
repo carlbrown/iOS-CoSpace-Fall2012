@@ -7,6 +7,7 @@
 //
 
 #import "HCSViewController.h"
+#import "HCSDetailViewController.h"
 #import "Reachability.h"
 #import "NetworkManager.h"
 #import "Repo.h"
@@ -23,6 +24,7 @@
 @synthesize tableView = _tableView;
 @synthesize reachability = _reachability;
 @synthesize connection = _connection;
+@synthesize detailViewController = _detailViewController;
 
 - (void)viewDidLoad
 {
@@ -62,6 +64,18 @@
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    if (!self.detailViewController) {
+        self.detailViewController = [[HCSDetailViewController alloc] initWithNibName:@"HCSDetailViewController_iPhone" bundle:nil];
+    }
+    self.detailViewController.detailItem = (Repo *) object;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController pushViewController:self.detailViewController animated:YES];
+}
+
 #pragma mark - Fetched results controller
 
 - (NSFetchedResultsController *)fetchedResultsController

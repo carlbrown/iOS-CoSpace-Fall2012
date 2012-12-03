@@ -13,5 +13,6 @@
 @interface Repo : NSManagedObject
 
 @property (nonatomic, retain) NSString * login;
+@property (nonatomic, retain) NSString * url;
 
 @end

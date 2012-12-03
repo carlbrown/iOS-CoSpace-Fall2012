@@ -52,7 +52,7 @@
 
     //extract the parts from it we want to test
     HCSJSONDataExtractor *extractor = [[HCSJSONDataExtractor alloc] init];
-    NSArray *ownerNames = [extractor arrayExtractedFromJSONArray:parsedJSONArray];
+    NSArray *ownerNames = [[extractor arrayExtractedFromJSONArray:parsedJSONArray] valueForKey:@"login"];
     
     //Make sure the data is correct
     STAssertEquals((uint) 11, (uint) [ownerNames count], @"Should have added 11 repos");

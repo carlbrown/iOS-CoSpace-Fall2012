@@ -13,7 +13,8 @@
 -(NSArray *) arrayExtractedFromJSONArray:(NSArray *) arrayFromJSON {
     NSMutableArray *retVal = [NSMutableArray arrayWithCapacity:[arrayFromJSON count]];
     for (NSDictionary *repoDict in arrayFromJSON) {
-        [retVal addObject:[repoDict valueForKeyPath:@"owner.login"]];
+        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[repoDict valueForKeyPath:@"owner.login"],@"login",[repoDict valueForKeyPath:@"html_url"],@"html_url", nil];
+        [retVal addObject:dict];
     }
     return [NSArray arrayWithArray:retVal];
 }

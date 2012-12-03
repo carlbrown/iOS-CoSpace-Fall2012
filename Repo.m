@@ -12,5 +12,6 @@
 @implementation Repo
 
 @dynamic login;
+@dynamic url;
 
 @end

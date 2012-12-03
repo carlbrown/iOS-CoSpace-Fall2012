@@ -29,7 +29,9 @@
     //this is the line that I forgot that made the app crash
     [self.viewController setManagedObjectContext:self.managedObjectContext];
     
-    self.window.rootViewController = self.viewController;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     return YES;
 }
